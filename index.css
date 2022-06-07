@@ -1,0 +1,111 @@
+/* resets */
+button {
+  border: none;
+}
+
+/* animation */
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+:root {
+  --lg-container: 1200px;
+  --gutter: 25px;
+  --border-radius: 5px;
+
+  --primary-blue: #00c2ff;
+  --primary-yellow: #ffd600;
+  --black: #000;
+  --white: #fff;
+
+  --btn-md: 100px;
+  --btn-round: 80px;
+
+  --font-lg: 2rem;
+
+  font-size: 16px;
+}
+
+/* utils */
+.text-center {
+  text-align: center;
+}
+
+.border-rounded {
+  border-radius: var(--border-radius);
+}
+
+.m-auto {
+  margin: auto;
+}
+
+/* layouts */
+.container {
+  display: grid;
+  gap: var(--gutter);
+
+  max-width: var(--lg-container);
+  margin: auto;
+
+  padding: var(--gutter);
+}
+
+/* components */
+.btn-primary {
+  width: var(--btn-md);
+  padding: calc(var(--gutter) / 2);
+  border-radius: var(--border-radius);
+  color: var(--white);
+  background-color: var(--primary-blue);
+}
+
+.btn-donate {
+  position: absolute;
+  border-radius: 50%;
+  padding: 10px;
+  text-align: center;
+  width: var(--btn-round);
+  height: var(--btn-round);
+  bottom: 5%;
+  right: 5%;
+  font-size: var(--font-lg);
+  background-color: var(--primary-yellow);
+  box-shadow: #ccc 0px 5px 10px;
+
+  transition: bottom 0.5s ease-in-out;
+  transition: box-shadow 0.2s ease-in-out;
+
+  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+  animation-iteration-count: 5;
+  animation-delay: 3s;
+}
+
+.btn-donate:hover {
+  cursor: pointer;
+  bottom: 7%;
+  box-shadow: #ccc 0px 30px 10px;
+  transition: bottom 0.5s ease-in-out;
+}
+
+.subhead {
+  border: 2px solid var(--primary-yellow);
+  text-align: center;
+  border-radius: var(--border-radius);
+  max-width: 800px;
+  margin: auto;
+  padding: calc(var(--gutter) / 2) var(--gutter);
+}
