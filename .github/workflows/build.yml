@@ -25,6 +25,8 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: "16"
+      - name: Checkout
+        uses: actions/checkout@v3
       - run: npm i
         name: Install deps
       - run: npm run build
