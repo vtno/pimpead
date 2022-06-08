@@ -53,7 +53,7 @@ jobs:
         name: Install deps
       - run: npm run build
         name: Build
-      - uses: stefanzweifel/git-auto-commit-action@v4npm run test
+      - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: 'release: auto commit'
           branch: prd
