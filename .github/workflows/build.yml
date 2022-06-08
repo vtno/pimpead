@@ -47,8 +47,6 @@ jobs:
           node-version: "16"
       - name: Checkout
         uses: actions/checkout@v3
-        with:
-          ref: prd
       - run: npm i
         name: Install deps
       - run: npm run build
@@ -57,6 +55,7 @@ jobs:
         with:
           commit_message: 'release: auto commit'
           branch: prd
+          push_options: --force
           file_pattern: out/app.js index.html index.css
           commit_user_name: bot-vtno
           commit_user_email: tino@vtno.me
