@@ -1,6 +1,13 @@
 /* resets */
+
 button {
   border: none;
+}
+
+body {
+  height: 100vh;
+  position: relative;
+  margin: 0;
 }
 
 /* animation */
@@ -25,10 +32,10 @@ button {
 :root {
   --lg-container: 1200px;
   --gutter: 25px;
-  --border-radius: 5px;
+  --border-radius: 10px;
 
-  --primary-blue: #00c2ff;
-  --primary-yellow: #ffd600;
+  --primary-blue: #415ca5;
+  --primary-orange: #f29139;
   --black: #000;
   --white: #fff;
 
@@ -40,6 +47,10 @@ button {
   font-size: 16px;
 }
 
+html * {
+   font-family: Noto Sans, Noto Sans Thai !important;
+}
+
 /* utils */
 .text-center {
   text-align: center;
@@ -49,8 +60,24 @@ button {
   border-radius: var(--border-radius);
 }
 
+.pt-1 {
+  padding-top: var(--gutter);
+}
+
 .m-auto {
   margin: auto;
+}
+
+.color-primary {
+  color: var(--primary-blue);
+}
+
+.color-secondary {
+  color: var(--primary-orange);
+}
+
+.font-bold {
+  font-weight: bold;
 }
 
 /* layouts */
@@ -64,13 +91,23 @@ button {
   padding: var(--gutter);
 }
 
+.form-group {
+  display: grid;
+  grid-template-rows: 1fr 0.4fr;
+  gap: 0;
+}
+
 /* components */
 .btn-primary {
-  width: var(--btn-md);
+  width: 100%;
   padding: calc(var(--gutter) / 2);
   border-radius: var(--border-radius);
   color: var(--white);
   background-color: var(--primary-blue);
+}
+
+.btn-primary:hover {
+  cursor: pointer;
 }
 
 .btn-donate {
@@ -80,11 +117,13 @@ button {
   text-align: center;
   width: var(--btn-round);
   height: var(--btn-round);
-  bottom: 5%;
+  bottom: 7%;
   right: 5%;
   font-size: var(--font-lg);
-  background-color: var(--primary-yellow);
-  box-shadow: #ccc 0px 5px 10px;
+  background-color: var(--primary-orange);
+  box-shadow: rgb(130, 130, 130) 0px 5px 10px;
+
+  z-index: 2;
 
   transition: bottom 0.5s ease-in-out;
   transition: box-shadow 0.2s ease-in-out;
@@ -101,11 +140,31 @@ button {
   transition: bottom 0.5s ease-in-out;
 }
 
+.btn-copy {
+  background-color: var(--primary-orange);
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
+  color: var(--black);
+}
+
+.btn-copy:hover {
+  cursor: pointer;
+}
+
 .subhead {
-  border: 2px solid var(--primary-yellow);
+  border: 2px solid var(--primary-orange);
   text-align: center;
   border-radius: var(--border-radius);
   max-width: 800px;
   margin: auto;
   padding: calc(var(--gutter) / 2) var(--gutter);
+}
+
+.footer {
+  height: 20px;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  background-color: var(--primary-blue);
+  padding: calc(var(--gutter) / 2);
+  text-align: center;
 }

@@ -33,3 +33,31 @@ jobs:
         name: Build
       - run: npm run test
         name: Test
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    needs: build_and_test
+    name: "Commit and push to prd branch"
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "16"
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          ref: prd
+      - run: npm i
+        name: Install deps
+      - run: npm run build
+        name: Build
+      - uses: stefanzweifel/git-auto-commit-action@v4npm run test
+        with:
+          commit_message: 'release: auto commit'
+          branch: prd
+          file_pattern: out/app.js index.html index.css
+          commit_user_name: bot-vtno
+          commit_user_email: tino@vtno.me
+          commit_author: vtno <tino@vtno.me>

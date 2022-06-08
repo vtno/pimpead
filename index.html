@@ -1,23 +1,45 @@
 <html>
   <head>
-    <title>❌ พิมพ์เผียด ❌ </title>
+    <title>❌ พิมพ์เผียด ❌</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="index.css" />
     <script type="text/javascript" src="out/app.js" defer></script>
   </head>
   <body>
-    <h1 class="text-center">❌ พิมพ์เผียด ❌ </h1>
+    <h1 class="text-center pt-1 color-primary font-bold">
+      พิมพ์เผียด <span class="color-secondary">ถถถ</span>
+    </h1>
+    <p class="text-center">
+      ลืมเปลี่ยนภาษาที่แป้นคีย์บอร์ดไม่ว่าจะ ไทย - Eng หรือ Eng - ไทย
+    </p>
+    <p class="text-center">
+      <span class="color-primary font-bold">พิมพ์เผียด</span>
+      <span class="color-secondary font-bold">ถถถ</span> จะช่วยคุณแก้เอง
+    </p>
     <div class="container border-rounded">
       <div class="subhead">
         <h2>example - ตัวอย่าง</h2>
         <h3>l;ylfy - สวัสดี</h3>
         <h3>้ำสสน- hello</h3>
       </div>
-      <label class="text-center">พิมพ์ผิดว่าไง</label>
-      <textarea placeholder="l;ylfy..." id="src"></textarea>
+      <textarea placeholder="l;ylfy..." id="src" rows="5"></textarea>
       <button class="m-auto btn-primary" id="translate">แปล!</button>
-      <label class="text-center">แปลให้ทางนี้</label>
-      <textarea disabled id="out"></textarea>
+      <div class="form-group">
+        <textarea disabled id="out" rows="5"></textarea>
+        <button class="btn-copy">ก๊อบ here</button>
+      </div>
     </div>
-    <button class="btn-donate">💰</button>
+    <!-- <button class="btn-donate">💰</button> -->
+    <footer class="footer">
+      Made with ❤️ by <a href="https://vtno.me">Tino</a>
+    </footer>
   </body>
 </html>
