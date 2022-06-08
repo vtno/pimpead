@@ -58,7 +58,7 @@ jobs:
       - run: npm run build
         name: Build
       - run: |
-          $(cat .gitignore | grep -v "out") > .gitignore
+          echo $(cat .gitignore | grep -v "out") > .gitignore
         name: Remove out from .gitignore
       - run: |
           git add .
