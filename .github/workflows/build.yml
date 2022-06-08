@@ -50,7 +50,7 @@ jobs:
       - run: | 
           git config --global user.email "tino@vtno.me"
           git config --global user.name "bot-vtno"
-          git branch -D prd
+          git branch -D origin/prd
           git checkout -b prd
         name: Reset prd branch
       - run: npm i
