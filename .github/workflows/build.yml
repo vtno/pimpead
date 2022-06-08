@@ -55,5 +55,9 @@ jobs:
         name: Install deps
       - run: npm run build
         name: Build
+      - run: cat .gitignore | grep -v "out" > .gitignore
+        name: Remove out from .gitignore
+      - run: git add . && git commit -m "release: auto commit"
+        name: Commit
       - run: git push origin prd --force
         name: Push to prd branch
