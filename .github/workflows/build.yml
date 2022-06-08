@@ -47,23 +47,13 @@ jobs:
           node-version: "16"
       - name: Checkout
         uses: actions/checkout@v3
-        with:
-          ref: prd
       - run: git config --global user.email "tino@vtno.me" && git config --global user.name "bot-vtno"
         name: Set GH user
-      - run: git fetch && git reset --hard origin/main
-        name: Update prd branch
+      - run: git branch -D prd && git checkout -b prd
+        name: Reset prd branch
       - run: npm i
         name: Install deps
       - run: npm run build
         name: Build
-      - uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: 'release: auto commit'
-          branch: prd
-          push_options: '--force'
-          file_pattern: out/app.js index.html index.css
-          commit_user_name: bot-vtno
-          commit_user_email: tino@vtno.me
-          commit_author: vtno <tino@vtno.me>
-          skip_checkout: true
+      - run: git push origin prd --force
+        name: Push to prd branch
