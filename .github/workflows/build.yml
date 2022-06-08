@@ -51,7 +51,7 @@ jobs:
           ref: prd
       - run: git config --global user.email "tino@vtno.me" && git config --global user.name "bot-vtno"
         name: Set GH user
-      - run: git fetch && git merge origin/main --allow-unrelated-histories
+      - run: git fetch && git reset --hard origin/main
         name: Update prd branch
       - run: npm i
         name: Install deps
