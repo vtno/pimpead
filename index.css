@@ -8,6 +8,12 @@ body {
   height: 100vh;
   position: relative;
   margin: 0;
+  width: 100%;
+}
+
+a {
+  color: var(--primary-orange);
+  font-weight: bold;
 }
 
 /* animation */
@@ -30,7 +36,7 @@ body {
 }
 
 :root {
-  --lg-container: 1200px;
+  --lg-container: 900px;
   --gutter: 25px;
   --border-radius: 10px;
 
@@ -165,6 +171,7 @@ html * {
   width: 100%;
   bottom: 0;
   background-color: var(--primary-blue);
-  padding: calc(var(--gutter) / 2);
+  padding: calc(var(--gutter) / 2) 0;
   text-align: center;
+  color: var(--white);
 }
