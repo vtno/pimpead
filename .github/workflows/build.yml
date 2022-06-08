@@ -57,7 +57,8 @@ jobs:
         name: Install deps
       - run: npm run build
         name: Build
-      - run: cat .gitignore | grep -v "out" > .gitignore
+      - run: |
+          $(cat .gitignore | grep -v "out") > .gitignore
         name: Remove out from .gitignore
       - run: |
           git add .
