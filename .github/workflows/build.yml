@@ -64,5 +64,5 @@ jobs:
           git add .
           git commit -m "release: auto commit"
         name: Commit
-      - run: git push origin prd --force
+      - run: git push origin main:prd --force
         name: Push to prd branch
