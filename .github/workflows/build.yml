@@ -48,7 +48,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - run: | 
-          git config --global user.email "tino@vtno.me"
+          git config --global user.email "bot-tino@vtno.me"
           git config --global user.name "bot-vtno"
         name: Reset prd branch
       - run: npm i
