@@ -1,38 +1,133 @@
 import thEnMapper from "./th-en.json";
 import enThMapper from "./en-th.json";
 
-const engKeyboardCharCodes = { max: 126, min: 33 }
-const thRegEx = /[ๅภถุึคตจขชๆไำพะัีรนยบลฃฟหกดเ้่าสวงผปแอิืทมใฝ๑๒๓๔ู฿๕๖๗๘๙๐ฎฑธํ๊ณฯญฐฅฤฆฏโฌ็๋ษศซฉฮฺ์ฒฬฦ]/g
+const engKeyboardCharCodes = { max: 126, min: 33 };
+const thRegEx =
+  /[ๅภถุึคตจขชๆไำพะัีรนยบลฃฟหกดเ้่าสวงผปแอิืทมใฝ๑๒๓๔ู฿๕๖๗๘๙๐ฎฑธํ๊ณฯญฐฅฤฆฏโฌ็๋ษศซฉฮฺ์ฒฬฦ]/g;
+const thChar = [
+  "ก",
+  "ข",
+  "ฃ",
+  "ค",
+  "ฅ",
+  "ฆ",
+  "ง",
+  "จ",
+  "ฉ",
+  "ช",
+  "ซ",
+  "ฌ",
+  "ญ",
+  "ฎ",
+  "ฏ",
+  "ฐ",
+  "ฑ",
+  "ฒ",
+  "ณ",
+  "ด",
+  "ต",
+  "ถ",
+  "ท",
+  "ธ",
+  "น",
+  "บ",
+  "ป",
+  "ผ",
+  "ฝ",
+  "พ",
+  "ฟ",
+  "ภ",
+  "ม",
+  "ย",
+  "ร",
+  "ฤ",
+  "ล",
+  "ฦ",
+  "ว",
+  "ศ",
+  "ษ",
+  "ส",
+  "ห",
+  "ฬ",
+  "อ",
+  "ฮ",
+  "ฯ",
+  "ะ",
+  "ั",
+  "า",
+  "ำ",
+  "ิ",
+  "ี",
+  "ึ",
+  "ื",
+  "ุ",
+  "ู",
+  "ฺ",
+  "฿",
+  "เ",
+  "แ",
+  "โ",
+  "ใ",
+  "ไ",
+  "ๅ",
+  "ๆ",
+  "็",
+  "่",
+  "้",
+  "๊",
+  "๋",
+  "์",
+  "ํ",
+  "๎",
+  "๏",
+  "๐",
+  "๑",
+  "๒",
+  "๓",
+  "๔",
+  "๕",
+  "๖",
+  "๗",
+  "๘",
+  "๙",
+  "๚",
+  "๛",
+];
+const numberRegEx = /[0-9]/g;
 
-function isOutOfCharCodeRange(range: { max: number, min: number }): (c: number) => boolean {
-  return (c: number) => c < range.min && c > range.max;
+export function isEng(s: string): boolean {
+  return (
+    s.charCodeAt(0) >= engKeyboardCharCodes.min &&
+    s.charCodeAt(0) <= engKeyboardCharCodes.max
+  );
 }
 
-function isEng(s: string): boolean {
-  const outOfRange = s.split('').map(c => c.charCodeAt(0)).filter(isOutOfCharCodeRange(engKeyboardCharCodes))
-  if (outOfRange.length > 0) return false
-  return true
-}
-
-function isTh(s: string): boolean {
-  return (thRegEx).test(s)
+export function isTh(s: string): boolean {
+  return thChar.includes(s);
 }
 
 export function translate(input: string): string {
-  let mapper: any
-  if (isEng(input)) {
-    mapper = enThMapper
-  }
-  
-  if (isTh(input)) {
-    mapper = thEnMapper
-  }
+  const chars = input.split("");
+  const toThai = isEng(chars[0]);
+  const mapper = toThai ? enThMapper : thEnMapper;
 
-  return input.split("").map(c => {
-    if (c === " ") return " "
-    if (c === "\n") return "\n"
-    return mapper[c]
-  }).join("")
+  return chars
+    .map((c) => {
+      if (c === "") return "";
+      if (c === " ") return " ";
+      if (c === "\n") return "\n";
+      if (numberRegEx.test(c) && !toThai) {
+        return c;
+      }
+
+      // Th char among Eng chars = inverse mapping
+      if (toThai && isTh(c)) {
+        return thEnMapper[c];
+      }
+
+      return mapper[c];
+    })
+    .join("");
 }
 
 type TranslateFn = (s: string) => string;
