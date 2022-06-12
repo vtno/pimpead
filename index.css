@@ -57,6 +57,32 @@ html * {
    font-family: Noto Sans, Noto Sans Thai !important;
 }
 
+#toast {
+  position: fixed;
+  margin: auto;
+  top: 5px;
+  width: 50px;
+  left: calc(50% - 25px);
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 1;
+  visibility: none;
+  justify-content: center;
+  align-items: center;
+  padding: calc(var(--gutter) / 2);
+  border-radius: calc(var(--border-radius) / 2);
+  color: var(--white);
+}
+
+.visible {
+  opacity: 1;
+  transition: opacity 0.1s linear;
+}
+
+.hidden {
+  opacity: 0;
+  transition: opacity 0.1s linear;
+}
+
 /* utils */
 .text-center {
   text-align: center;
