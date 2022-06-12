@@ -92,6 +92,7 @@ const thChar = [
   "๙",
   "๚",
   "๛",
+  "_",
 ];
 const numberRegEx = /[0-9]/g;
 
@@ -123,6 +124,11 @@ export function translate(input: string): string {
       // Th char among Eng chars = inverse mapping
       if (toThai && isTh(c)) {
         return thEnMapper[c];
+      }
+
+      // Eng char among Th chars = inverse mapping
+      if (!toThai && isEng(c) && !['_', '+'].includes(c)) {
+        return enThMapper[c];
       }
 
       return mapper[c];
