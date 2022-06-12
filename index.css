@@ -5,15 +5,22 @@ button {
 }
 
 body {
-  height: 100vh;
   position: relative;
   margin: 0;
   width: 100%;
+  height: 100vh;
+  background-color: #f8f7f4;
+  display: grid;
+  grid-template-rows: 1fr;
 }
 
 a {
   color: var(--primary-orange);
   font-weight: bold;
+}
+
+h1, p {
+  margin: 0;
 }
 
 /* animation */
@@ -92,12 +99,16 @@ html * {
   border-radius: var(--border-radius);
 }
 
-.pt-1 {
-  padding-top: var(--gutter);
-}
-
 .m-auto {
   margin: auto;
+}
+
+.half-gap {
+  gap: calc(var(--gutter) / 2);
+}
+
+.full-gap {
+  gap: var(--gutter);
 }
 
 .color-primary {
@@ -115,10 +126,9 @@ html * {
 /* layouts */
 .container {
   display: grid;
-  gap: var(--gutter);
 
   max-width: var(--lg-container);
-  margin: auto;
+  margin: 0 auto;
 
   padding: var(--gutter);
 }
@@ -175,7 +185,7 @@ html * {
 .btn-copy {
   background-color: var(--primary-orange);
   border-radius: 0 0 var(--border-radius) var(--border-radius);
-  color: var(--black);
+  color: var(--white);
 }
 
 .btn-copy:hover {
@@ -186,18 +196,25 @@ html * {
   border: 2px solid var(--primary-orange);
   text-align: center;
   border-radius: var(--border-radius);
-  max-width: 800px;
+  max-width: var(--lg-container);
   margin: auto;
   padding: calc(var(--gutter) / 2) var(--gutter);
 }
 
+.example {
+  width: 100%;
+}
+
+.main {
+  align-self: start;
+}
+
 .footer {
   height: 20px;
-  position: absolute;
   width: 100%;
-  bottom: 0;
   background-color: var(--primary-blue);
   padding: calc(var(--gutter) / 2) 0;
   text-align: center;
   color: var(--white);
+  align-self: end;
 }

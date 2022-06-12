@@ -1,7 +1,7 @@
 <html>
   <head>
     <title>❌ พิมพ์เผียด ❌</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;700&display=swap"
@@ -13,35 +13,43 @@
     />
     <link rel="stylesheet" href="index.css" />
     <!-- prod -->
-    <script type="text/javascript" src="out/app.js" defer></script>
+    <!-- <script type="text/javascript" src="out/app.js" defer></script> -->
     <!-- dev mode -->
-    <!-- <script type="text/javascript" src="http://127.0.0.1:8000/app.js" defer></script> -->
+    <script
+      type="text/javascript"
+      src="http://127.0.0.1:8000/app.js"
+      defer
+    ></script>
   </head>
   <body>
-    <div id="toast" class="hidden"></div>
-    <h1 class="text-center pt-1 color-primary font-bold">
-      พิมพ์เผียด <span class="color-secondary">ถถถ</span>
-    </h1>
-    <p class="text-center">
-      ลืมเปลี่ยนภาษาที่แป้นคีย์บอร์ดไม่ว่าจะ ไทย - Eng หรือ Eng - ไทย
-    </p>
-    <p class="text-center">
-      <span class="color-primary font-bold">พิมพ์เผียด</span>
-      <span class="color-secondary font-bold">ถถถ</span> จะช่วยคุณแก้เอง
-    </p>
-    <div class="container border-rounded">
-      <div class="subhead">
-        <h2>example - ตัวอย่าง</h2>
-        <h3>l;ylfy - สวัสดี</h3>
-        <h3>้ำสสน- hello</h3>
+    <main class="container half-gap">
+      <div id="toast" class="hidden"></div>
+      <h1 class="text-center color-primary font-bold">
+        พิมพ์เผียด <span class="color-secondary">ถถถ</span>
+      </h1>
+      <p class="text-center">
+        ลืมเปลี่ยนภาษาที่แป้นคีย์บอร์ดไม่ว่าจะ ไทย - Eng หรือ Eng - ไทย
+      </p>
+      <p class="text-center">
+        <span class="color-primary font-bold">พิมพ์เผียด</span>
+        <span class="color-secondary font-bold">ถถถ</span> จะช่วยคุณแก้เอง
+      </p>
+      <div class="container border-rounded full-gap">
+        <div class="subhead">
+          <img
+            src="images/ผิมเผียด.png"
+            alt="pimpead example"
+            class="example"
+          />
+        </div>
+        <textarea placeholder="l;ylfy..." id="src" rows="5"></textarea>
+        <button class="m-auto btn-primary" id="translate">แปล!</button>
+        <div class="form-group">
+          <textarea disabled id="out" rows="5"></textarea>
+          <button class="btn-copy" id="copy">ก๊อบ here</button>
+        </div>
       </div>
-      <textarea placeholder="l;ylfy..." id="src" rows="5"></textarea>
-      <button class="m-auto btn-primary" id="translate">แปล!</button>
-      <div class="form-group">
-        <textarea disabled id="out" rows="5"></textarea>
-        <button class="btn-copy" id="copy">ก๊อบ here</button>
-      </div>
-    </div>
+    </main>
     <!-- <button class="btn-donate">💰</button> -->
     <footer class="footer">
       Made with ❤️ by <a href="https://vtno.me">vtno</a>
