@@ -7,7 +7,7 @@ function init() {
   const outTextArea = document.querySelector('#out') as HTMLTextAreaElement
   const toastDiv = document.querySelector('#toast') as HTMLDivElement
   const translator = new Translator(srcTextArea, outTextArea, translate)
-  const copier = new ToClipboard(outTextArea)
+  const copier = new ToClipboard(outTextArea, navigator)
   const toast = new Toast(toastDiv)
 
   document.querySelector('#translate').addEventListener('click', () => {

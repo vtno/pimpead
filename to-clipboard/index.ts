@@ -1,13 +1,11 @@
 export class ToClipboard {
-    constructor(private readonly textArea: HTMLTextAreaElement) {
-      this.textArea = textArea;
-    }
+    constructor(private readonly textArea: HTMLTextAreaElement, private readonly navigator: Navigator) {}
 
     async copy() {
       if (!this.textArea.value) {
         return false
       }
-      await navigator.clipboard.writeText(this.textArea.value);
+      await this.navigator.clipboard.writeText(this.textArea.value);
       return true
     }
 }
