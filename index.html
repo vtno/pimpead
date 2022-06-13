@@ -22,28 +22,39 @@
     ></script> -->
   </head>
   <body>
-    <main class="container half-gap">
-      <div id="toast" class="hidden"></div>
-      <h1 class="text-center color-primary font-bold">
-        พิมพ์เผียด <span class="color-secondary">ถถถ</span>
-      </h1>
-      <p class="text-center">
-        ลืมเปลี่ยนภาษาที่แป้นคีย์บอร์ดไม่ว่าจะ ไทย - Eng หรือ Eng - ไทย
-      </p>
-      <p class="text-center">
-        <span class="color-primary font-bold">พิมพ์เผียด</span>
-        <span class="color-secondary font-bold">ถถถ</span> จะช่วยคุณแก้เอง
-      </p>
-      <div class="container border-rounded full-gap">
-        <div class="subhead">
+    <main class="mx-auto w-full">
+      <div class="container full-gap mx-auto">
+        <div id="toast" class="hidden"></div>
+        <h1 class="text-center color-primary font-bold">
+          พิมพ์เผียด <span class="color-secondary">ถถถ</span>
+        </h1>
+        <p class="text-center">
+          ลืมเปลี่ยนภาษาที่แป้นคีย์บอร์ดไม่ว่าจะ <br />
+          ไทย - Eng หรือ Eng - ไทย
+        </p>
+        <p class="text-center">
+          <span class="color-primary font-bold">พิมพ์เผียด</span>
+          <span class="color-secondary font-bold">ถถถ</span> จะช่วยคุณแก้เอง
+        </p>
+        <a id="modal-toggler" class="mx-auto">
           <img
-            src="images/ผิมเผียด.png"
-            alt="pimpead example"
-            class="example"
+            src="images/aibo-btn.png"
+            alt="ปุ่มไอ้โบ้"
+            class="modal-toggler-img"
           />
+        </a>
+        <div class="subhead modal" id="modal">
+          <div class="modal-content">
+            <img
+              src="images/ผิมเผียด.png"
+              alt="pimpead example"
+              class="w-full"
+            />
+            <p class="color-grey">คลิ๊กตรงไหนก็ได้เพื่อปิด</p>
+          </div>
         </div>
         <textarea placeholder="l;ylfy..." id="src" rows="5"></textarea>
-        <button class="m-auto btn-primary" id="translate">แปล!</button>
+        <button class="mx-auto btn-primary" id="translate">แปล!</button>
         <div class="form-group">
           <textarea disabled id="out" rows="5"></textarea>
           <button class="btn-copy" id="copy">ก๊อบ here</button>
@@ -51,6 +62,7 @@
       </div>
     </main>
     <!-- <button class="btn-donate">💰</button> -->
+    <div id="modal-bg" class="modal-background"></div>
     <footer class="footer">
       Made with ❤️ by <a href="https://vtno.me">vtno</a>
     </footer>
