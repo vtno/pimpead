@@ -33,7 +33,7 @@ describe("translate", () => {
       "เบื่อลุงข้างบ้านจัง อยู่มา 8 ปีแล้ว",
     ],
     ["สนอำ ันี _จจจ", "love you 3000"],
-    ["หำฟพแ้ ันีะีิำ ดนพ Fmouj", "search youtube for โทนี่"]
+    ["หำฟพแ้ ันีะีิำ ดนพ Fmouj", "search youtube for โทนี่"],
   ])("returns correct translation: %s - %s", (input, output) => {
     expect(translate(input)).toBe(output);
   });

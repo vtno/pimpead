@@ -2,8 +2,6 @@ import thEnMapper from "./th-en.json";
 import enThMapper from "./en-th.json";
 
 const engKeyboardCharCodes = { max: 126, min: 33 };
-const thRegEx =
-  /[ๅภถุึคตจขชๆไำพะัีรนยบลฃฟหกดเ้่าสวงผปแอิืทมใฝ๑๒๓๔ู฿๕๖๗๘๙๐ฎฑธํ๊ณฯญฐฅฤฆฏโฌ็๋ษศซฉฮฺ์ฒฬฦ]/g;
 const thChar = [
   "ก",
   "ข",
@@ -127,7 +125,7 @@ export function translate(input: string): string {
       }
 
       // Eng char among Th chars = inverse mapping
-      if (!toThai && isEng(c) && !['_', '+'].includes(c)) {
+      if (!toThai && isEng(c) && !["_", "+"].includes(c)) {
         return enThMapper[c];
       }
 
